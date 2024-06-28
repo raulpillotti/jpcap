@@ -20,6 +20,10 @@ public class JpcapCaptor extends JpcapInstance {
 	 */
 	public int dropped_packets;
 
+	public static void capturePacket(JpcapCaptor captor){
+		captor.processPacket(-1, new PackagePrinter());
+	}
+
 	private native String nativeOpenLive(String device, int snaplen,
 			int promisc, int to_ms);
 

@@ -107,7 +107,7 @@ public class IPPacket extends Packet {
 	public byte[] option;
 
 	/** Option headers in IPv6Option (v6) */
-	public java.util.List options = null;
+	public java.util.List<IPv6Option> options = null;
 
 	/**
 	 * Sets the IPv4 parameters
@@ -245,9 +245,9 @@ public class IPPacket extends Packet {
 	}
 
 	void addOptionHeader(IPv6Option header) {
-		if (options == null)
-			options = new java.util.ArrayList();
-
+		if (options == null) {
+			options = new java.util.ArrayList<IPv6Option>();
+        }
 		options.add(header);
 	}
 
@@ -287,3 +287,4 @@ public class IPPacket extends Packet {
 		}
 	}
 }
+
